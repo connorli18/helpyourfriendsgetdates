@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Button</title>
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+    <style>
+        body{
+            background-color: rgb(247, 204, 156);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #gif {
+            width: 200px;
+            height: 200px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around; /* Added this line */
+            position: absolute;
+            top: 70%; /* Adjusted this line */
+            width: 100%; /* Added this line */
+        }
+
+        .button {
+            /* Retro video game style */
+            background-color: #ffadad; /* Bright green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            padding: 15px 32px;
+            border-radius: 12px;
+            font-family: 'Press Start 2P'; /* Retro video game font */
+            box-shadow: 0 9px #999; /* Button press effect */
+            position: absolute; /* Added this line */
+        }
+
+        #yesButton {
+            left: 30%;
+        }
+
+        #noButton {
+            left: 60%;
+        }
+
+        .button:hover {
+            background-color: #3e8e41;
+            color: rgb(247, 204, 156);
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+    <img id="gif" src="gif.gif" alt="Your GIF">
+    <h1 style="font-family: 'Press Start 2P'; color: white;">Will you go out with me?</h1>    
+    <div class="button-container">
+        <a id="yesButton" class="button" href="https://www.timeout.com/newyork/sex-dating/date-ideas">Yes :)</a>
+        <button id="noButton" class="button" onmouseover="moveButton()" onclick="event.preventDefault();">No :(</button>
+    </div>
+
+    <script>
+        var gif = document.getElementById("gif");
+
+        gif.addEventListener('load', function() {
+            setTimeout(function() {
+                gif.src = "gif.gif?" + new Date().getTime();
+            }, 2000); // Assuming the GIF duration is 5 seconds
+        });
+    </script>
+
+    <script>
+        function moveButton() {
+            var noButton = document.getElementById("noButton");
+            var randomX, randomY;
+
+            // Define the area where the button can move
+            var minX = 1450, maxX = 2500, minY = -100, maxY = 300;
+
+            do {
+                randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+            } while (Math.abs(randomX - noButton.offsetLeft) < noButton.offsetWidth && Math.abs(randomY - noButton.offsetTop) < noButton.offsetHeight);
+
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+        }
+    </script>
+</body>
+</html>
