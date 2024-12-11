@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Moving Button</title>
     <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
     <style>
-        body{
+        body {
             background-color: rgb(247, 204, 156);
             margin: 0;
             padding: 0;
@@ -22,14 +23,14 @@
 
         .button-container {
             display: flex;
-            justify-content: space-around; 
+            justify-content: space-around;
             position: absolute;
-            top: 70%; 
-            width: 100%; 
+            top: 70%;
+            width: 100%;
         }
 
         .button {
-            background-color: #ffadad; 
+            background-color: #ffadad;
             border: none;
             color: white;
             text-align: center;
@@ -40,9 +41,9 @@
             cursor: pointer;
             padding: 15px 32px;
             border-radius: 12px;
-            font-family: 'Press Start 2P'; 
-            box-shadow: 0 9px #999; 
-            position: absolute; 
+            font-family: 'Press Start 2P';
+            box-shadow: 0 9px #999;
+            position: absolute;
         }
 
         #yesButton {
@@ -65,19 +66,22 @@
         }
     </style>
 </head>
+
 <body>
     <img id="gif" src="gif.gif" alt="Your GIF">
-    <h1 style="font-family: 'Press Start 2P'; color: white;">Will you go out with me?</h1>    
+    <h1 style="font-family: 'Press Start 2P'; color: white;">Will you go out with me 06-12-2024?</h1>
     <div class="button-container">
-        <a id="yesButton" class="button" href="https://www.timeout.com/newyork/sex-dating/date-ideas">Yes :)</a>
+        <a id="yesButton" class="button"
+            href="mailto:liconnor21@gmail.com?subject=YES%20I%20WILL%20GO%20OUT%20WITH%20YOU&body=I%20love%20how%20you%27re%20super%20into%20dinosaurs%20and%20say%20%22dude%20actually%22%20all%20the%20time">Yes
+            :)</a>
         <button id="noButton" class="button" onmouseover="moveButton()" onclick="event.preventDefault();">No :(</button>
     </div>
 
     <script>
         var gif = document.getElementById("gif");
 
-        gif.addEventListener('load', function() {
-            setTimeout(function() {
+        gif.addEventListener('load', function () {
+            setTimeout(function () {
                 gif.src = "gif.gif?" + new Date().getTime();
             }, 2000); // Assuming the GIF duration is 5 seconds
         });
@@ -89,7 +93,7 @@
             var randomX, randomY;
 
             // Define the area where the button can move
-            var minX = 1450, maxX = 2500, minY = -100, maxY = 300;
+            var minX = 800, maxX = 1000, minY = -50, maxY = 100;
 
             do {
                 randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
@@ -101,4 +105,5 @@
         }
     </script>
 </body>
+
 </html>
